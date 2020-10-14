@@ -11,6 +11,7 @@ import (
 	"net"
 	"os"
 	"strings"
+	"time"
 )
 var (
 	errWrongRequest = errors.New("Worng request")
@@ -52,6 +53,11 @@ func handle(conn net.Conn){
 			log.Println(cerr)
 		}
 	}()
+	err := conn.SetReadDeadline(time.Now().Add(60 * time.Second))
+	if err != nil{
+		log.Println(err)
+		return
+	}
 	reader := bufio.NewReader(conn)
 	const delim = '\n'
 	line, err := reader.ReadString(delim)
@@ -75,7 +81,11 @@ func handle(conn net.Conn){
 		log.Println(errWrongRequest)
 		return
 	}
-
+	err = conn.SetWriteDeadline(time.Now().Add(3 * time.Minute))
+	if err != nil{
+		log.Println(err)
+		return
+	}
 	path := parts[1]
 	switch {
 	case path == "/":
