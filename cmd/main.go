@@ -42,7 +42,7 @@ func execute() (err error){
 			log.Println(err)
 			return  err
 		}
-		handle(conn)
+		go handle(conn)
 	}
 }
 
