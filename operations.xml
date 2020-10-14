@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Transactionns>
+<Transaction><id>0</id><from></from><to></to><mcc></mcc><status></status><date>2020-10-01T23:57:24+06:00</date><amount>0</amount></Transaction><Transaction><id>1</id><from>1</from><to>2</to><mcc>3</mcc><status>ok</status><date>2020-10-01T23:57:24+06:00</date><amount>100</amount></Transaction>
+</Transactionns>
